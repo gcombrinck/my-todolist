@@ -1,8 +1,12 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const urlencodedParser = bodyParser.urlencoded({ extended: false });
+const urlencodedParser = bodyParser.urlencoded({ extended: true });
+const path = require('path')
 
-const app = express();
+const app = express();;
+app.set( 'views', path.join( __dirname, 'views' ));
+app.set( 'view engine', 'ejs' );
+app.use(bodyParser.json());
 
 let todolist = [];
 
@@ -25,6 +29,21 @@ app.get('/todo', function(req, res) {
         todolist.splice(req.params.id, 1);
     }
     res.redirect('/todo');
+})
+
+.get('/todo/edit/:id', function(req, res){
+    res.render( 'edit.ejs', {
+            current : req.params.id,
+            todolist,
+          });
+})
+
+.post('/update/:id', urlencodedParser, function(req, res){
+ if (req.params.id != '') {
+        todolist[req.params.id] = req.body.content;
+    }
+    res.redirect('/todo');
+    console.log('After: ',todolist)
 })
 
 /* Redirects to the to do list if the page requested is not found */
