@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "scripts": {
     "start": "nodemon app.js",
-    "test": "mocha --require @babel/register --reporter mochawesome tests/**test.js"
+    "test": "npx gulp regression-testing"
   },
   "dependencies": {
     "body-parser": "^1.16.0",

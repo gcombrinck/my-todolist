@@ -56,6 +56,7 @@ Visit http://localhost:8080 in your browser
 4. Tags
 - `v1.0` added code for requirement #4
 - `v2.0` added code for requirement #5 and added the tests
+- `v4.0` completed final version
 
 5. XSS Vulnerability
 - I have to be honest, I have not done security testing before.
