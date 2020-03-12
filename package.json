@@ -2,14 +2,16 @@
   "name": "my-todolist",
   "version": "0.1.0",
   "scripts": {
-    "start": "./node_modules/.bin/nodemon app.js",
+    "start": "nodemon app.js",
     "test": "mocha --require @babel/register --reporter mochawesome tests/**test.js"
   },
   "dependencies": {
     "body-parser": "^1.16.0",
     "ejs": "^2.5.5",
-    "ejs-locals": "^1.0.2",
-    "express": "^4.14.0"
+    "express": "^4.14.0",
+    "express-ejs-layouts": "^2.5.0",
+    "form-data": "^3.0.0",
+    "helmet": "^3.21.3"
   },
   "author": "riaan@entersekt.com",
   "description": "Basic to do list exercise",
@@ -27,11 +29,13 @@
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
     "chai-url": "^1.0.4",
+    "chromedriver": "^80.0.1",
     "gulp": "^4.0.2",
     "gulp-mocha": "^7.0.2",
     "mocha": "^7.1.0",
     "mochawesome": "^5.0.0",
     "nodemon": "^2.0.2",
-    "selenium": "^2.20.0"
+    "selenium": "^2.20.0",
+    "selenium-webdriver": "^4.0.0-alpha.7"
   }
 }

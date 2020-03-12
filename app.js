@@ -1,11 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const urlencodedParser = bodyParser.urlencoded({ extended: true });
+const urlencodedParser = bodyParser.urlencoded({ extended: false });
 const path = require('path')
+//const helmet = require( 'helmet' );
 
-const app = express();;
+const app = express();
 app.set( 'views', path.join( __dirname, 'views' ));
 app.set( 'view engine', 'ejs' );
+//app.use(helmet());
 app.use(bodyParser.json());
 
 let todolist = [];
@@ -31,19 +33,20 @@ app.get('/todo', function(req, res) {
     res.redirect('/todo');
 })
 
+/* Render Edit page*/
 .get('/todo/edit/:id', function(req, res){
     res.render( 'edit.ejs', {
-            current : req.params.id,
-            todolist,
-          });
+        current : req.params.id,
+        todolist,
+    });
 })
 
+/* Update an item from the to do list */
 .post('/update/:id', urlencodedParser, function(req, res){
- if (req.params.id != '') {
+    if (req.params.id != '') {
         todolist[req.params.id] = req.body.content;
     }
     res.redirect('/todo');
-    console.log('After: ',todolist)
 })
 
 /* Redirects to the to do list if the page requested is not found */
