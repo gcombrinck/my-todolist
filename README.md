@@ -66,5 +66,6 @@ Visit http://localhost:8080 in your browser
 - Used `snyk` to check for vulnerabilities in the node dependencies 
 
 6. Minikube  Kubernetes
+- I have never worked with Kubernetes before.
 - I tried to get minikube running on my machine but it unfortunately kept running out memory. Even when I tried to use `--memory 1024`
 - I added a `deployment.yaml` file
