@@ -10,10 +10,13 @@ let homePage;
 describe('ToDo App Regression Tests', async () => {
 
     before(async ()=> {
-        driver = await new Builder()
-                .withCapabilities(Capabilities.chrome())
-                .build();
-         homePage = new HomePage(driver);
+        driver = new Builder()
+                    .forBrowser('chrome')
+                    .setChromeOptions(new chrome.Options().headless().addArguments("--disable-dev-shm-usage")
+                    .addArguments("--no-sandbox").addArguments("--disable-gpu").addArguments("--disable-extensions").addArguments("--disable-infobars"))
+                    .build();
+
+        homePage = new HomePage(driver);
     })
 
     it('Add a new Task', async () =>{
