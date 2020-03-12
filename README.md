@@ -64,3 +64,7 @@ Visit http://localhost:8080 in your browser
 - I also tried some other methods from documentation but could not identify the vulnerability. Would be nice if you could point it out to me for future reference.
 - I however, added `helmet` to the app as recommended in the express js documentation.
 - Used `snyk` to check for vulnerabilities in the node dependencies 
+
+6. Minikube  Kubernetes
+- I tried to get minikube running on my machine but it unfortunately kept running out memory. Even when I tried to use `--memory 1024`
+- I added a `deployment.yaml` file
